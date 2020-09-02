@@ -11,7 +11,7 @@
 #
 # Happy Coding!
 
-service: whatsapp-api
+service: whatsapp-aws-api
 # app and org for use with dashboard.serverless.com
 #app: your-app-name
 #org: your-org-name
@@ -23,6 +23,9 @@ service: whatsapp-api
 provider:
   name: aws
   runtime: python3.8
+  profile: awsautomate
+  region: ap-south-1
+
 
 # you can overwrite defaults here
 #  stage: dev
@@ -58,8 +61,20 @@ provider:
 #    - exclude-me-dir/**
 
 functions:
-  hello:
-    handler: handler.hello
+  whatsappnotify:
+    handler: handler.whatsappnotify
+    events:
+      - cloudwatchEvent:
+          event:
+            source:
+              - "aws.autoscaling"
+            detail-type:
+              - "EC2 Instance-launch Lifecycle Action"
+            detail:
+              AutoScalingGroupName:
+                - "SecondASG"
+                - "AWSAutomateASG"
+
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details
