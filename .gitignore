@@ -18,3 +18,10 @@ var/
 
 # Serverless directories
 .serverless
+
+# Test files
+sendMsg.py
+sendWhatsApp.py
+
+config/config.dev.json
+node_modules/

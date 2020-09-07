@@ -23,8 +23,14 @@ service: whatsapp-aws-api
 provider:
   name: aws
   runtime: python3.8
-  profile: awsautomate
+  profile: ${file(./config/config.${self:provider.stage}.json):serverless.profile}
   region: ap-south-1
+  stage: dev
+  environment:
+    TWILIO_ACC_SID: ${file(./config/config.${self:provider.stage}.json):serverless.twilio_account_sid}
+    TWILIO_AUTH_TOKEN: ${file(./config/config.${self:provider.stage}.json):serverless.twilio_auth_token}
+    TWILIO_SEND_FROM: ${file(./config/config.${self:provider.stage}.json):serverless.send_from}
+    TWILIO_SEND_TO_LIST: ${file(./config/config.${self:provider.stage}.json):serverless.send_to_list}
 
 
 # you can overwrite defaults here
@@ -129,3 +135,6 @@ functions:
 #     NewOutput:
 #       Description: "Description for the output"
 #       Value: "Some output value"
+
+plugins:
+  - serverless-python-requirements

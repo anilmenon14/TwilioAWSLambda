@@ -3,6 +3,8 @@
 "serverless": {
  "twilio_account_sid" : "",
  "twilio_auth_token" : "",
+ "send_to_list" : [],
+ "send_from" : "" ,
  "profile": ""
 }
 
