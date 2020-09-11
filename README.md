@@ -10,10 +10,10 @@
   - Set up Twilio account and have Account SID, Auth Token, 'from' number (i.e. Twilio sandbox number) and 'to' number      (i.e. subscribed receivers from sandbox)
   - Create a config.dev.json file under 'config' directory. Refer to config.template.json for format. Provide details from twilio account.   
   **IMPORTANT**: This file will contain sensitive information, hence is part of .gitignore  
+
   The below is an example of how it would look like:
-
-  `{
-
+  ```
+  {
   "serverless": {
    "twilio_account_sid" : "ACsdr334sdd4ff34dsfd333dd3",
    "twilio_auth_token" : "34j4jh4jh43jkjh4495n55",
@@ -21,8 +21,8 @@
    "send_from" : "whatsapp:+1453245344" ,
    "profile": "profileCreatedByYou"
   }
-
-  }`
+  }
+  ```
 
   - Create the profile to place in config.dev.json using below steps :
 
@@ -38,10 +38,12 @@
   - In my setup in AWS Console, I have 2 Autoscaling groups created , namely 'AWSAutomateASG' and 'SecondASG'  
   If you are not following same naming conventions, create ones with name of your choice and ensure this part of serverless.yml is updated.
 
-  `detail:
+  ```
+  detail:
     AutoScalingGroupName:
       - "SecondASG"
-      - "AWSAutomateASG"`
+      - "AWSAutomateASG"
+  ```
 
   - OPTIONAL : If you wish to have the serverless setup done in a specific region, specify in provider section of serverless.yml. I have chosen ap-south-1
 
@@ -56,4 +58,4 @@
 
 ## Outcome expected:
 
-  ![Twilio Screenshot](img/TwilioScreenshot.png)
+  ![Twilio Screenshot](img/TwilioScreenshot.PNG)
