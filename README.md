@@ -31,9 +31,10 @@
   To create a profile name with name as, for E.g. 'awsautomate', run command below:   
   `aws configure --profile awsautomate`
 
-  **Pre-requisite**: The above command will require you to pass Key ID and private key to set up. To get this , you will need to create a user in AWS IAM console and set it up for programmatic access. Download the csv of private key credentials from the console (IMPORTANT: It is only provided at time of creation. If you accidentally missed it, delete the user and create a new one and keep the csv).    
+  **Note**: The above command will require you to pass Key ID and private key to set up. To get this , you will need to create a user in AWS IAM console and set it up for programmatic access. Download the csv of private key credentials from the console (IMPORTANT: It is only provided at time of creation. If you accidentally missed it, delete the user and create a new one and keep the csv).    
   Use the contents of the csv to pass to command above.  
 
+## Additional Pre-requisites for AutoScaling setup in serverless:
 
   - In my setup in AWS Console, I have 2 Autoscaling groups created , namely 'AWSAutomateASG' and 'SecondASG'  
   If you are not following same naming conventions, create ones with name of your choice and ensure this part of serverless.yml is updated.
